@@ -46,10 +46,6 @@ namespace Login_Form
                             row.SubItems.Add(reader.GetString(1));
                             row.SubItems.Add(reader.GetString(2));
                             listView1.Items.Add(row);
-
-
-
-                            //listView1.Items.Add(reader.GetInt32(0)+"\t"+reader.GetString(1)+"\t"+reader.GetString(2));
                         }
                     }
                     else
@@ -60,6 +56,15 @@ namespace Login_Form
                 }
                 conn.Close();
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection selected = this.listView1.SelectedItems;
+
+            String info = selected.ToString();
+
+            lb_info.Text += info;
         }
     }
 }

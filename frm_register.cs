@@ -21,7 +21,7 @@ namespace Login_Form
             InitializeComponent();
 
         }
-
+         
         private void btn_register_Click(object sender, EventArgs e)
         {
             if (tb_username.Text == "" && tb_password.Text == "" && tb_conPass.Text == "")
@@ -36,26 +36,6 @@ namespace Login_Form
             {
                 Console.WriteLine(tb_username.Text);
                 Console.WriteLine(tb_password.Text);
-
-                /*using(MySqlConnection conn = new MySqlConnection(connStr))
-                {
-                    String query = "INSERT INTO se_project.user (username, password) VALUES (@username, @password)";
-
-                    using(MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@username", tb_username.Text);
-                        cmd.Parameters.AddWithValue("@password", tb_password.Text);
-
-                        conn.Open();
-                        int result = cmd.ExecuteNonQuery();
-
-                        if (result < 0)
-                        {
-                            MessageBox.Show("Error inserting dataing into database", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        MessageBox.Show("User '" + tb_username.Text + "' added to database", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }*/
 
                 using (MySqlConnection conn = new MySqlConnection(conn_str))
                 {
@@ -78,18 +58,6 @@ namespace Login_Form
                     }
                 }
 
-                /*
-                MySqlConnection conn = new MySqlConnection();
-                conn.ConnectionString = "server=localhost;user id=admin;database=login;Password=1234";
-
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO users (username, password) VALUES (@username, @password", conn);
-                cmd.Parameters.AddWithValue("@username", tb_username.Text);
-                cmd.Parameters.AddWithValue("@password", tb_password.Text);
-
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                */
                 tb_username.Text = "";
                 tb_password.Text = "";
                 tb_conPass.Text = "";
